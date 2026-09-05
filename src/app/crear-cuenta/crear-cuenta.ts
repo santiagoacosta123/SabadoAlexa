@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -33,12 +34,20 @@ export class CrearCuentaComponent {
 
   registrarCuenta() {
     if (!this.registro.correo || !this.registro.password) {
-      alert('Por favor ingresa tu correo electrónico y una contraseña.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Datos incompletos',
+        text: 'Por favor ingresa tu correo electrónico y una contraseña.'
+      });
       return;
     }
 
     if (this.registro.password !== this.registro.confirmPassword) {
-      alert('Las contraseñas no coinciden. Por favor verifícalas.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Contraseñas diferentes',
+        text: 'Las contraseñas no coinciden. Por favor verifícalas.'
+      });
       return;
     }
 
@@ -76,13 +85,23 @@ export class CrearCuentaComponent {
             console.log('Login automático exitoso:', loginRes);
             localStorage.setItem('access', loginRes.access);
             localStorage.setItem('usuario', JSON.stringify(loginRes.usuario));
-            alert('¡Cuenta creada exitosamente! Bienvenido a SiRAE.');
+            Swal.fire({
+              icon: 'success',
+              title: 'Cuenta creada',
+              text: '¡Cuenta creada exitosamente! Bienvenido a SiRAE.',
+              timer: 1800,
+              showConfirmButton: false
+            });
             this.router.navigate(['/inicio']);
           },
           error: (loginErr) => {
             this.cargando = false;
             console.warn('Registro exitoso, pero login automático requirió autenticación manual:', loginErr);
-            alert('¡Cuenta creada correctamente! Por favor inicia sesión con tu correo y contraseña.');
+            Swal.fire({
+              icon: 'success',
+              title: 'Cuenta creada',
+              text: 'Por favor inicia sesión con tu correo y contraseña.'
+            });
             this.router.navigate(['/login']);
           }
         });
@@ -106,7 +125,11 @@ export class CrearCuentaComponent {
           }
         }
 
-        alert(mensajeError);
+        Swal.fire({
+          icon: 'error',
+          title: 'No se pudo crear la cuenta',
+          text: mensajeError
+        });
       }
     });
   }
