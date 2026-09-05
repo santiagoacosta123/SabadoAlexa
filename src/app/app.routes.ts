@@ -49,10 +49,7 @@ export const routes: Routes = [
     path: 'gestion-categoria',
     component: GestionCategoria
   },
-  {
-    path: '**',
-    redirectTo: 'login'
-  },
+  
   {
     path: 'rol',
     component: ListarRoles
@@ -60,6 +57,45 @@ export const routes: Routes = [
   {
     path: 'rol/crear',
     component: CrearRoles
+  },
+  {
+    path: 'calendario',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: 'usuarios',
+    redirectTo: 'rol',
+    pathMatch: 'full'
+  },
+  {
+    path: 'reportes',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: 'sedes',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: 'inventario',
+    redirectTo: 'plantillas',
+    pathMatch: 'full'
+  },
+  {
+    path: 'formulario',
+    redirectTo: 'productos',
+    pathMatch: 'full'
+  },
+  {
+    path: 'categorias',
+    redirectTo: 'gestion-categoria',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   },
 
 ];
