@@ -6,14 +6,11 @@
     <div class="flex items-center gap-4 mb-8">
 
       <a
-        routerLink="/roles/listar"
-        class="w-10 h-10 flex items-center justify-center rounded-lg
-               bg-white border border-gray-200 text-gray-600
-               hover:bg-gray-100 transition"
+      routerLink="/rol"
+      class="text-gray-600 hover:text-[#5f7435] transition"
       >
-        ←
-      </a>
-
+      <span class="text-3xl">←</span>
+    </a>
       <div>
         <h1 class="text-3xl font-bold text-gray-800">
           Crear nuevo rol
@@ -117,26 +114,28 @@
           <!-- Botones -->
           <div
             class="flex justify-end gap-3 pt-6
-                   border-t border-gray-200"
+            border-t border-gray-200"
           >
 
-            <!-- DEVOLVER -->
-            <a
-              routerLink="/roles/listar"
-              class="px-6 py-3 rounded-lg
-                     border border-gray-300
-                     text-gray-700 font-semibold
-                     hover:bg-gray-100 transition"
-            >
-              cancelar
-            </a>
+<a
+  routerLink="/rol"
+  class="px-6 py-3 rounded-lg
+        border border-gray-300
+        text-gray-700 font-semibold
+        hover:bg-gray-100 transition"
+>
+  Cancelar
+</a>
 
-            <!-- CREAR -->
+
+
+
+
             <button
               type="submit"
               class="px-6 py-3 rounded-lg
-                     bg-amber-400 hover:bg-amber-500
-                     text-gray-900 font-bold transition"
+                    bg-amber-400 hover:bg-amber-500
+                    text-gray-900 font-bold transition"
             >
               Crear rol
             </button>
