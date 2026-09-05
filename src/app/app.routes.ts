@@ -38,7 +38,6 @@ export const routes: Routes = [
   },
   {
     path: 'editar-categoria',
-<<<<<<< Updated upstream
     component: EditarCategoria
   },
   {
@@ -59,4 +58,4 @@ export const routes: Routes = [
   },
 
 ];
->>>>>>> Stashed changes
+
