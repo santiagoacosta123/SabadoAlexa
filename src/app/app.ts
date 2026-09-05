@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLinkActive, RouterLink, CommonModule], 
-  styleUrl: './app.css',
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
 export class App {
   private router = inject(Router);
