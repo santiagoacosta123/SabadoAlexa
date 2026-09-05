@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLinkActive, RouterLink } from '@angular/router'; 
 import { CommonModule } from '@angular/common';
@@ -13,3 +14,15 @@ export class App {
   protected readonly title = signal('administrador');
 }
 
+=======
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.html'
+})
+export class App {
+}
+>>>>>>> Stashed changes

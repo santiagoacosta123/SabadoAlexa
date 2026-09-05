@@ -1,0 +1,109 @@
+<div class="h-screen w-screen bg-[#e8e8e8] flex items-center justify-center p-8">
+
+  <div class="w-full h-full bg-white rounded-xl shadow-xl overflow-hidden flex">
+
+    <div class="w-1/2 flex-shrink-0 bg-white flex flex-col justify-center px-10 py-5">
+      <div class="w-full max-w-[480px] relative mx-auto">
+
+        <div class="text-center mb-3">
+          <img src="img/logo-sirae.png" alt="SiRAE" class="h-10 mx-auto mb-2 object-contain">
+          <h1 class="text-2xl font-bold text-[#486333] mb-0.5 tracking-wide font-sans">Crear cuenta</h1>
+          <p class="text-[11px] text-gray-400">Completa los datos para registrarte en SiRAE.</p>
+        </div>
+
+        <!-- Section title -->
+        <h2 class="text-[11px] font-bold text-gray-400 mb-2 border-b border-gray-200 pb-1">
+          Datos personales
+        </h2>
+
+        <!-- Form -->
+        <form (ngSubmit)="registrarCuenta()" class="space-y-2">
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <input
+              type="text" name="nombre" [(ngModel)]="registro.nombre" placeholder="Nombre completo"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <input
+              type="text" name="apellidos" [(ngModel)]="registro.apellidos" placeholder="Apellidos"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <input
+              type="email" name="correo" [(ngModel)]="registro.correo" placeholder="Correo electrónico"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <select
+              name="genero" [(ngModel)]="registro.genero"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+              <option value="">Género</option>
+              <option value="femenino">Femenino</option>
+              <option value="masculino">Masculino</option>
+            </select>
+            <input
+              type="tel" name="telefono" [(ngModel)]="registro.telefono" placeholder="Teléfono"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <select
+              name="rol" [(ngModel)]="registro.rol"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+              <option value="">Rol solicitado</option>
+              <option value="administrador">Administrador</option>
+              <option value="supervisor">Supervisor</option>
+              <option value="manipuladora">Manipuladora</option>
+              <option value="manipuladora-jefe">Manipuladora jefe</option>
+            </select>
+            <input
+              type="text" name="sede" [(ngModel)]="registro.sede" placeholder="Sede / Institución"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <select
+              name="tipoDocumento" [(ngModel)]="registro.tipoDocumento"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+              <option value="">Tipo de documento</option>
+              <option value="cc">Cédula de Ciudadanía</option>
+              <option value="ti">Tarjeta de Identidad</option>
+            </select>
+            <input
+              type="text" name="direccion" [(ngModel)]="registro.direccion" placeholder="Dirección"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <input
+              type="text" name="numeroDocumento" [(ngModel)]="registro.numeroDocumento" placeholder="Número de documento"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+          </div>
+
+          <div class="pt-2">
+            <button
+              type="submit"
+              class="w-full bg-[#E8A317] hover:bg-[#d4941a] text-white font-bold py-2 rounded-full transition-colors text-sm"
+            >
+              Registrarse
+            </button>
+          </div>
+
+        </form>
+
+        <div class="mt-3 text-center text-[11px] text-gray-400 space-y-0.5">
+          <p>¿Ya tienes una cuenta?</p>
+          <a routerLink="/login" class="text-[#486333] font-bold hover:underline">
+            Iniciar sesión
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="w-1/2 relative overflow-hidden flex items-center justify-start pl-8 lg:pl-12 bg-white">
+      <img src="img/vegetables-bg.jpg" alt="Vegetales" class="absolute inset-0 w-full h-full object-cover object-right">
+      <div class="relative z-10">
+        <img src="img/logo-sirae.png" alt="SiRAE" class="h-36 lg:h-40 max-w-[360px] object-contain">
+      </div>
+    </div>
+
+  </div>
+
+</div>

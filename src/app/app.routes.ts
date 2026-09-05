@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+<<<<<<< Updated upstream
 import { Inicio } from './inicio/inicio';
 import { Productos } from './productos/productos';
 import { CrearCategoria } from './crear-categoria/crear-categoria';
@@ -35,4 +36,13 @@ export const routes: Routes = [
     path: '**',
     redirectTo: 'inicio'
   }
+=======
+import { LoginComponent } from './login/login';
+import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta';
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'crear-cuenta', component: CrearCuentaComponent }
+>>>>>>> Stashed changes
 ];
