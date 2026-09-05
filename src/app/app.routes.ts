@@ -1,39 +1,38 @@
 import { Routes } from '@angular/router';
 import { Inicio } from './inicio/inicio';
+import { Productos } from './productos/productos';
+import { CrearCategoria } from './crear-categoria/crear-categoria';
+import { EditarCategoria } from './editar-categoria/editar-categoria';
+import { GestionCategoria } from './gestion-categoria/gestion-categoria';
 
 export const routes: Routes = [
-
   {
     path: '',
-    redirectTo: 'gestion-categoria',
+    redirectTo: 'inicio',
     pathMatch: 'full'
   },
-
   {
-    path: 'gestion-categoria',
-    loadComponent: () =>
-      import('./gestion-categoria/gestion-categoria')
-        .then(
-          m => m.GestionCategoria
-        )
+    path: 'inicio',
+    component: Inicio
   },
-
+  {
+    path: 'productos',
+    component: Productos
+  },
   {
     path: 'crear-categoria',
-    loadComponent: () =>
-      import('./crear-categoria/crear-categoria')
-        .then(
-          m => m.CrearCategoria
-        )
+    component: CrearCategoria
   },
-
   {
     path: 'editar-categoria',
-    loadComponent: () =>
-      import('./editar-categoria/editar-categoria')
-        .then(
-          m => m.EditarCategoria
-        )
+    component: EditarCategoria
+  },
+  {
+    path: 'gestion-categoria',
+    component: GestionCategoria
+  },
+  {
+    path: '**',
+    redirectTo: 'inicio'
   }
-
 ];

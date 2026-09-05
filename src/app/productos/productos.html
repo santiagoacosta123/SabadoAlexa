@@ -1,0 +1,102 @@
+<div class="contenedor">
+
+  <header>
+    <div>
+      <h1>Gestión de productos</h1>
+      <p>PAE - Administración de productos</p>
+    </div>
+
+    @if (vista === 'lista') {
+      <button (click)="abrirCrear()">
+        Nuevo producto
+      </button>
+    }
+  </header>
+
+  @if (vista === 'lista') {
+    <section>
+
+      <input
+        class="buscador"
+        type="text"
+        [(ngModel)]="busqueda"
+        placeholder="Buscar producto"
+      />
+
+      @if (productosFiltrados.length === 0) {
+        <p>No hay productos registrados.</p>
+      }
+
+      @if (productosFiltrados.length > 0) {
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Categorías</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (producto of productosFiltrados; track producto.id) {
+              <tr>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ nombresCategorias(producto.categorias) }}</td>
+                <td>
+                  <button class="gris" (click)="verDetalle(producto)">Ver</button>
+                  <button class="gris" (click)="editar(producto)">Editar</button>
+                  <button class="rojo" (click)="eliminar(producto)">Eliminar</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    </section>
+  }
+
+  @if (vista === 'formulario') {
+    <section class="tarjeta">
+      <h2>{{ editandoId ? 'Editar producto' : 'Nuevo producto' }}</h2>
+
+      <form (ngSubmit)="guardar()">
+
+        <label>
+          Nombre *
+          <input type="text" name="nombre" [(ngModel)]="producto.nombre" placeholder="Escribí el nombre del producto" />
+        </label>
+
+        <fieldset>
+          <legend>Categorías *</legend>
+
+          @for (categoria of categorias; track categoria.id) {
+            <label class="categoria">
+              <input
+                type="checkbox"
+                [checked]="tieneCategoria(categoria.id)"
+                (change)="cambiarCategoria(categoria.id, $any($event.target).checked)"
+              />
+              {{ categoria.nombre }}
+            </label>
+          }
+        </fieldset>
+
+        <button type="button" class="gris" (click)="volver()">Cancelar</button>
+        <button type="submit">Guardar</button>
+      </form>
+    </section>
+  }
+
+  @if (vista === 'detalle' && productoDetalle) {
+    <section class="tarjeta">
+      <h2>Detalle del producto</h2>
+
+      <p><strong>Nombre:</strong> {{ productoDetalle.nombre }}</p>
+      <p><strong>Categorías:</strong> {{ nombresCategorias(productoDetalle.categorias) }}</p>
+
+      <button class="gris" (click)="volver()">Volver</button>
+      <button (click)="editar(productoDetalle)">Editar</button>
+    </section>
+  }
+
+</div>

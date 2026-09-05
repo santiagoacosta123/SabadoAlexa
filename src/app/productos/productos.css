@@ -1,0 +1,144 @@
+.contenedor {
+  padding: 24px 32px;
+  font-family: Arial, sans-serif;
+  color: #2f3b1f;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #6b8e23;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #4b6b1e;
+}
+
+header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+button {
+  background-color: #6b8e23;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+button:hover {
+  background-color: #5a7a1c;
+}
+
+button.gris {
+  background-color: #e5e7eb;
+  color: #333;
+}
+
+button.gris:hover {
+  background-color: #d1d5db;
+}
+
+button.rojo {
+  background-color: #dc2626;
+}
+
+button.rojo:hover {
+  background-color: #b91c1c;
+}
+
+.buscador {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 14px;
+  border: 1px solid #cbd5c0;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f3f6ec;
+  color: #4b6b1e;
+}
+
+.tarjeta {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 20px;
+  max-width: 500px;
+}
+
+.tarjeta h2 {
+  margin-top: 0;
+  color: #4b6b1e;
+}
+
+form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5c0;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+fieldset {
+  margin-top: 16px;
+  border: 1px solid #cbd5c0;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 13px;
+  color: #4b6b1e;
+}
+
+.categoria {
+  display: block;
+  font-weight: normal;
+  margin: 6px 0;
+}
+
+.categoria input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+form button {
+  margin-top: 20px;
+} 
