@@ -2,7 +2,7 @@
 
   <div class="w-full h-full bg-white rounded-xl shadow-xl overflow-hidden flex">
 
-    <div class="w-1/2 flex-shrink-0 bg-white flex flex-col justify-center px-10 py-5">
+    <div class="w-1/2 flex-shrink-0 bg-white flex flex-col justify-center px-10 py-5 overflow-y-auto">
       <div class="w-full max-w-[480px] relative mx-auto">
 
         <div class="text-center mb-3">
@@ -19,7 +19,7 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <input
-              type="text" name="nombre" [(ngModel)]="registro.nombre" placeholder="Nombre completo"
+              type="text" name="nombre" [(ngModel)]="registro.nombre" placeholder="Nombre completo" required
               class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
             >
             <input
@@ -27,7 +27,19 @@
               class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
             >
             <input
-              type="email" name="correo" [(ngModel)]="registro.correo" placeholder="Correo electrónico"
+              type="email" name="correo" [(ngModel)]="registro.correo" placeholder="Correo electrónico" required
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <input
+              type="tel" name="telefono" [(ngModel)]="registro.telefono" placeholder="Teléfono"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <input
+              type="password" name="password" [(ngModel)]="registro.password" placeholder="Contraseña" required
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <input
+              type="password" name="confirmPassword" [(ngModel)]="registro.confirmPassword" placeholder="Confirmar contraseña" required
               class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
             >
             <select
@@ -38,10 +50,6 @@
               <option value="femenino">Femenino</option>
               <option value="masculino">Masculino</option>
             </select>
-            <input
-              type="tel" name="telefono" [(ngModel)]="registro.telefono" placeholder="Teléfono"
-              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
-            >
             <select
               name="rol" [(ngModel)]="registro.rol"
               class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
@@ -52,10 +60,6 @@
               <option value="manipuladora">Manipuladora</option>
               <option value="manipuladora-jefe">Manipuladora jefe</option>
             </select>
-            <input
-              type="text" name="sede" [(ngModel)]="registro.sede" placeholder="Sede / Institución"
-              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
-            >
             <select
               name="tipoDocumento" [(ngModel)]="registro.tipoDocumento"
               class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs text-gray-400 bg-white focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
@@ -65,11 +69,15 @@
               <option value="ti">Tarjeta de Identidad</option>
             </select>
             <input
-              type="text" name="direccion" [(ngModel)]="registro.direccion" placeholder="Dirección"
+              type="text" name="numeroDocumento" [(ngModel)]="registro.numeroDocumento" placeholder="Número de documento"
               class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
             >
             <input
-              type="text" name="numeroDocumento" [(ngModel)]="registro.numeroDocumento" placeholder="Número de documento"
+              type="text" name="sede" [(ngModel)]="registro.sede" placeholder="Sede / Institución"
+              class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
+            >
+            <input
+              type="text" name="direccion" [(ngModel)]="registro.direccion" placeholder="Dirección"
               class="w-full px-3 py-2 rounded-lg border border-[#7a9e67] text-xs focus:outline-none focus:ring-1 focus:ring-[#486333] focus:border-[#7a9e67]"
             >
           </div>
@@ -77,9 +85,10 @@
           <div class="pt-2">
             <button
               type="submit"
-              class="w-full bg-[#E8A317] hover:bg-[#d4941a] text-white font-bold py-2 rounded-full transition-colors text-sm"
+              [disabled]="cargando"
+              class="w-full bg-[#E8A317] hover:bg-[#d4941a] disabled:opacity-50 text-white font-bold py-2 rounded-full transition-colors text-sm cursor-pointer disabled:cursor-not-allowed"
             >
-              Registrarse
+              {{ cargando ? 'Registrando...' : 'Registrarse' }}
             </button>
           </div>
 
