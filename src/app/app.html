@@ -1,95 +1,95 @@
-<<<<<<< Updated upstream
-<div class="flex flex-col h-screen bg-[#f1f3f5] font-sans text-[#2d3748] overflow-hidden">
-  
-  <header class="bg-white border-b border-gray-200/80 px-4 sm:px-6 h-20 flex items-center justify-between shadow-md z-30 flex-shrink-0 relative">
+@if (isAuthRoute()) {
+  <router-outlet></router-outlet>
+} @else {
+  <div class="flex flex-col h-screen bg-[#f1f3f5] font-sans text-[#2d3748] overflow-hidden">
     
-    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#5f7435] via-[#fbbd05] to-[#5f7435]"></div>
-
-    <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-      <div class="p-1.5 bg-white rounded-xl shadow-xs">
-        <img src="logo.png" alt="Sirae Logo" class="h-8 sm:h-9 w-auto object-contain">
-      </div>
-      <div class="hidden xl:block">
-        <div class="flex items-baseline tracking-tighter">
-          <span class="text-2xl font-bold tracking-tight text-[#5f7435]" style="font-family: serif;">sirae</span>
-          <span class="w-2 h-2 bg-[#fbbd05] rounded-full ml-0.5 mb-1.5"></span>
-        </div>
-        <p class="text-[8px] uppercase tracking-widest text-gray-400 font-semibold">
-          Sistema Integral de Registro Alimentación Escolar
-        </p>
-      </div>
-    </div>
-
-    <nav class="flex items-center gap-1.5 bg-gray-50/80 p-1.5 rounded-2xl border border-gray-200/60 shadow-inner max-w-[45vw] sm:max-w-[60vw] lg:max-w-none overflow-x-auto scrollbar-none">
+    <header class="bg-white border-b border-gray-200/80 px-4 sm:px-6 h-20 flex items-center justify-between shadow-md z-30 flex-shrink-0 relative">
       
-      <a routerLink="/inicio" routerLinkActive="active" #rla1="routerLinkActive"
-         [ngClass]="rla1.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
-         class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
-        <span class="material-symbols-rounded text-[18px]" [ngClass]="rla1.isActive ? 'text-[#5f7435]' : 'text-gray-400'">home</span>
-        <span class="hidden md:inline">Inicio</span>
-      </a>
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#5f7435] via-[#fbbd05] to-[#5f7435]"></div>
 
-      <a routerLink="/calendario" routerLinkActive="active" #rla2="routerLinkActive"
-         [ngClass]="rla2.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
-         class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
-        <span class="material-symbols-rounded text-[18px]" [ngClass]="rla2.isActive ? 'text-[#5f7435]' : 'text-gray-400'">calendar_month</span>
-        <span class="hidden md:inline">Calendario menu</span>
-      </a>
-
-      <a routerLink="/usuarios" routerLinkActive="active" #rla3="routerLinkActive"
-         [ngClass]="rla3.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
-         class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
-        <span class="material-symbols-rounded text-[18px]" [ngClass]="rla3.isActive ? 'text-[#5f7435]' : 'text-gray-400'">group</span>
-        <span class="hidden md:inline">Usuarios</span>
-      </a>
-
-      <a routerLink="/rol" routerLinkActive="active" #rla4="routerLinkActive"
-         [ngClass]="rla4.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
-         class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
-        <span class="material-symbols-rounded text-[18px]" [ngClass]="rla4.isActive ? 'text-[#5f7435]' : 'text-gray-400'">face</span>
-        <span class="hidden md:inline">Rol</span>
-      </a>
-
-      <a routerLink="/reportes" routerLinkActive="active" #rla5="routerLinkActive"
-         [ngClass]="rla5.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
-         class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
-        <span class="material-symbols-rounded text-[18px]" [ngClass]="rla5.isActive ? 'text-[#5f7435]' : 'text-gray-400'">description</span>
-        <span class="hidden md:inline">Reportes</span>
-      </a>
-
-      <a routerLink="/productos" routerLinkActive="active" #rla6="routerLinkActive"
-         [ngClass]="rla6.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
-         class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
-        <span class="material-symbols-rounded text-[18px]" [ngClass]="rla6.isActive ? 'text-[#5f7435]' : 'text-gray-400'">restaurant_menu</span>
-        <span class="hidden md:inline">Productos</span>
-      </a>
-
-      <a routerLink="/sedes" routerLinkActive="active" #rla7="routerLinkActive"
-         [ngClass]="rla7.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
-         class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
-        <span class="material-symbols-rounded text-[18px]" [ngClass]="rla7.isActive ? 'text-[#5f7435]' : 'text-gray-400'">apartment</span>
-        <span class="hidden md:inline">Sedes</span>
-      </a>
-
-    </nav>
-
-    <div class="flex items-center gap-3 pl-2 sm:pl-4 border-l border-gray-200 flex-shrink-0">
-      <div class="text-right hidden lg:block">
-        <p class="text-xs font-bold text-gray-800">Mariana Gomez</p>
-        <p class="text-[10px] text-gray-400">Administradora</p>
+      <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <div class="p-1.5 bg-white rounded-xl shadow-xs">
+          <img src="logo.png" alt="Sirae Logo" class="h-8 sm:h-9 w-auto object-contain">
+        </div>
+        <div class="hidden xl:block">
+          <div class="flex items-baseline tracking-tighter">
+            <span class="text-2xl font-bold tracking-tight text-[#5f7435]" style="font-family: serif;">sirae</span>
+            <span class="w-2 h-2 bg-[#fbbd05] rounded-full ml-0.5 mb-1.5"></span>
+          </div>
+          <p class="text-[8px] uppercase tracking-widest text-gray-400 font-semibold">
+            Sistema Integral de Registro Alimentación Escolar
+          </p>
+        </div>
       </div>
-      <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#5f7435] text-white flex items-center justify-center font-bold text-xs sm:text-sm shadow-sm">
-        AR
+
+      <nav class="flex items-center gap-1.5 bg-gray-50/80 p-1.5 rounded-2xl border border-gray-200/60 shadow-inner max-w-[45vw] sm:max-w-[60vw] lg:max-w-none overflow-x-auto scrollbar-none">
+        
+        <a routerLink="/inicio" routerLinkActive="active" #rla1="routerLinkActive"
+           [ngClass]="rla1.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
+           class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
+          <span class="material-symbols-rounded text-[18px]" [ngClass]="rla1.isActive ? 'text-[#5f7435]' : 'text-gray-400'">home</span>
+          <span class="hidden md:inline">Inicio</span>
+        </a>
+
+        <a routerLink="/calendario" routerLinkActive="active" #rla2="routerLinkActive"
+           [ngClass]="rla2.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
+           class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
+          <span class="material-symbols-rounded text-[18px]" [ngClass]="rla2.isActive ? 'text-[#5f7435]' : 'text-gray-400'">calendar_month</span>
+          <span class="hidden md:inline">Calendario menu</span>
+        </a>
+
+        <a routerLink="/usuarios" routerLinkActive="active" #rla3="routerLinkActive"
+           [ngClass]="rla3.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
+           class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
+          <span class="material-symbols-rounded text-[18px]" [ngClass]="rla3.isActive ? 'text-[#5f7435]' : 'text-gray-400'">group</span>
+          <span class="hidden md:inline">Usuarios</span>
+        </a>
+
+        <a routerLink="/rol" routerLinkActive="active" #rla4="routerLinkActive"
+           [ngClass]="rla4.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
+           class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
+          <span class="material-symbols-rounded text-[18px]" [ngClass]="rla4.isActive ? 'text-[#5f7435]' : 'text-gray-400'">face</span>
+          <span class="hidden md:inline">Rol</span>
+        </a>
+
+        <a routerLink="/reportes" routerLinkActive="active" #rla5="routerLinkActive"
+           [ngClass]="rla5.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
+           class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
+          <span class="material-symbols-rounded text-[18px]" [ngClass]="rla5.isActive ? 'text-[#5f7435]' : 'text-gray-400'">description</span>
+          <span class="hidden md:inline">Reportes</span>
+        </a>
+
+        <a routerLink="/productos" routerLinkActive="active" #rla6="routerLinkActive"
+           [ngClass]="rla6.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
+           class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
+          <span class="material-symbols-rounded text-[18px]" [ngClass]="rla6.isActive ? 'text-[#5f7435]' : 'text-gray-400'">restaurant_menu</span>
+          <span class="hidden md:inline">Productos</span>
+        </a>
+
+        <a routerLink="/sedes" routerLinkActive="active" #rla7="routerLinkActive"
+           [ngClass]="rla7.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
+           class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
+          <span class="material-symbols-rounded text-[18px]" [ngClass]="rla7.isActive ? 'text-[#5f7435]' : 'text-gray-400'">apartment</span>
+          <span class="hidden md:inline">Sedes</span>
+        </a>
+
+      </nav>
+
+      <div class="flex items-center gap-3 pl-2 sm:pl-4 border-l border-gray-200 flex-shrink-0">
+        <div class="text-right hidden lg:block">
+          <p class="text-xs font-bold text-gray-800">Mariana Gomez</p>
+          <p class="text-[10px] text-gray-400">Administradora</p>
+        </div>
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#5f7435] text-white flex items-center justify-center font-bold text-xs sm:text-sm shadow-sm">
+          AR
+        </div>
       </div>
-    </div>
 
-  </header>
+    </header>
 
-  <main class="flex-1 overflow-y-auto p-4 sm:p-8 bg-[#f1f3f5]">
-    <router-outlet></router-outlet>
-  </main>
+    <main class="flex-1 overflow-y-auto p-4 sm:p-8 bg-[#f1f3f5]">
+      <router-outlet></router-outlet>
+    </main>
 
-</div>
-=======
-<router-outlet></router-outlet>
->>>>>>> Stashed changes
+  </div>
+}
