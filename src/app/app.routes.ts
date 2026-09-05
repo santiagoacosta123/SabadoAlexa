@@ -3,14 +3,37 @@ import { Inicio } from './inicio/inicio';
 
 export const routes: Routes = [
 
-    {
-        path:'',
-        redirectTo:'inicio',
-        pathMatch:'full'
-    },
+  {
+    path: '',
+    redirectTo: 'gestion-categoria',
+    pathMatch: 'full'
+  },
 
-    {
-        path:'inicio',
-        component:Inicio
-    }
+  {
+    path: 'gestion-categoria',
+    loadComponent: () =>
+      import('./gestion-categoria/gestion-categoria')
+        .then(
+          m => m.GestionCategoria
+        )
+  },
+
+  {
+    path: 'crear-categoria',
+    loadComponent: () =>
+      import('./crear-categoria/crear-categoria')
+        .then(
+          m => m.CrearCategoria
+        )
+  },
+
+  {
+    path: 'editar-categoria',
+    loadComponent: () =>
+      import('./editar-categoria/editar-categoria')
+        .then(
+          m => m.EditarCategoria
+        )
+  }
+
 ];
