@@ -6,7 +6,9 @@ import { EditarCategoria } from './editar-categoria/editar-categoria';
 import { GestionCategoria } from './gestion-categoria/gestion-categoria';
 import { LoginComponent } from './login/login';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta';
-import { Rol } from './rol/rol';
+import { CrearRoles } from './rol/crear-rol/crear-rol';
+import { ListarRoles } from './rol/listar-rol/listar-rol';
+
 
 export const routes: Routes = [
   {
@@ -43,11 +45,17 @@ export const routes: Routes = [
     component: GestionCategoria
   },
   {
-    path: 'rol',
-    component: Rol
-  },
-  {
     path: '**',
     redirectTo: 'login'
-  }
+  },
+  {
+    path: 'rol',
+    component: ListarRoles
+  },
+  {
+    path: 'rol/crear',
+    component: CrearRoles
+  },
+
 ];
+
