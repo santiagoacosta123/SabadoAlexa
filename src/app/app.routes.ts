@@ -45,10 +45,6 @@ export const routes: Routes = [
     component: GestionCategoria
   },
   {
-    path: '**',
-    redirectTo: 'login'
-  },
-  {
     path: 'rol',
     component: ListarRoles
   },
@@ -56,6 +52,11 @@ export const routes: Routes = [
     path: 'rol/crear',
     component: CrearRoles
   },
+  {
+    path: '**',
+    redirectTo: 'login'
+  },
+  
 
 ];
 
