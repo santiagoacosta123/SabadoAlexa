@@ -1,6 +1,18 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+interface Plantilla {
+  id: number;
+  nombre: string;
+  producto: string;
+  cantidad: number;
+}
+
+interface Movimiento {
+  accion: string;
+  nombre: string;
+}
+
 @Component({
   selector: 'app-plantillas',
   imports: [FormsModule],
@@ -18,22 +30,22 @@ export class Plantillas {
   editando = false;
   idEditar = 0;
 
-  plantillas: any[] = [];
+  plantillas: Plantilla[] = [];
 
-  historial: any[] = [];
+  historial: Movimiento[] = [];
 
 
   guardar() {
 
-    if (this.nombre == '' || this.producto == '') {
+    if (this.nombre.trim() === '' || this.producto.trim() === '') {
       alert('Faltan datos');
       return;
     }
 
-    let plantilla = {
-      id: this.plantillas.length + 1,
-      nombre: this.nombre,
-      producto: this.producto,
+    const plantilla: Plantilla = {
+      id: this.obtenerNuevoId(),
+      nombre: this.nombre.trim(),
+      producto: this.producto.trim(),
       cantidad: this.cantidad
     };
 
@@ -48,7 +60,7 @@ export class Plantillas {
   }
 
 
-  editar(plantilla: any) {
+  editar(plantilla: Plantilla): void {
 
     this.nombre = plantilla.nombre;
     this.producto = plantilla.producto;
@@ -59,22 +71,20 @@ export class Plantillas {
   }
 
 
-  actualizar() {
+  actualizar(): void {
+    const posicion = this.plantillas.findIndex(
+      plantilla => plantilla.id === this.idEditar
+    );
 
-    for (let plantilla of this.plantillas) {
+    if (posicion !== -1) {
+      this.plantillas[posicion].nombre = this.nombre.trim();
+      this.plantillas[posicion].producto = this.producto.trim();
+      this.plantillas[posicion].cantidad = this.cantidad;
 
-      if (plantilla.id == this.idEditar) {
-
-        plantilla.nombre = this.nombre;
-        plantilla.producto = this.producto;
-        plantilla.cantidad = this.cantidad;
-
-        this.historial.push({
-          accion: 'Actualizó',
-          nombre: plantilla.nombre
-        });
-      }
-
+      this.historial.push({
+        accion: 'Actualizó',
+        nombre: this.plantillas[posicion].nombre
+      });
     }
 
     this.limpiar();
@@ -82,27 +92,27 @@ export class Plantillas {
   }
 
 
-  eliminar(id: number) {
+  eliminar(id: number): void {
+    const plantilla = this.plantillas.find(item => item.id === id);
 
-    let plantilla = this.plantillas.find(x => x.id == id);
+    if (!plantilla) {
+      return;
+    }
 
-    if (plantilla) {
+    const confirmar = confirm('¿Quieres eliminar la plantilla "' + plantilla.nombre + '"?');
 
+    if (confirmar) {
       this.historial.push({
         accion: 'Eliminó',
         nombre: plantilla.nombre
       });
 
+      this.plantillas = this.plantillas.filter(item => item.id !== id);
     }
-
-    this.plantillas = this.plantillas.filter(
-      plantilla => plantilla.id != id
-    );
-
   }
 
 
-  limpiar() {
+  limpiar(): void {
 
     this.nombre = '';
     this.producto = '';
@@ -111,12 +121,21 @@ export class Plantillas {
   }
 
 
-  get plantillasBuscadas() {
+  get plantillasBuscadas(): Plantilla[] {
+    const texto = this.buscar.trim().toLowerCase();
 
     return this.plantillas.filter(plantilla =>
-      plantilla.nombre.toLowerCase().includes(this.buscar.toLowerCase())
+      plantilla.nombre.toLowerCase().includes(texto) ||
+      plantilla.producto.toLowerCase().includes(texto)
     );
+  }
 
+  obtenerNuevoId(): number {
+    if (this.plantillas.length === 0) {
+      return 1;
+    }
+
+    return Math.max(...this.plantillas.map(plantilla => plantilla.id)) + 1;
   }
 
 }

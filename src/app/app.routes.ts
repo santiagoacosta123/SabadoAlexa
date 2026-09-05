@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta';
 import { CrearRoles } from './rol/crear-rol/crear-rol';
 import { ListarRoles } from './rol/listar-rol/listar-rol';
+import { Plantillas } from './plantillas/plantillas';
 
 
 export const routes: Routes = [
@@ -33,6 +34,10 @@ export const routes: Routes = [
     component: Productos
   },
   {
+    path: 'plantillas',
+    component: Plantillas
+  },
+  {
     path: 'crear-categoria',
     component: CrearCategoria
   },
@@ -44,10 +49,7 @@ export const routes: Routes = [
     path: 'gestion-categoria',
     component: GestionCategoria
   },
-  {
-    path: '**',
-    redirectTo: 'login'
-  },
+  
   {
     path: 'rol',
     component: ListarRoles
@@ -55,6 +57,45 @@ export const routes: Routes = [
   {
     path: 'rol/crear',
     component: CrearRoles
+  },
+  {
+    path: 'calendario',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: 'usuarios',
+    redirectTo: 'rol',
+    pathMatch: 'full'
+  },
+  {
+    path: 'reportes',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: 'sedes',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: 'inventario',
+    redirectTo: 'plantillas',
+    pathMatch: 'full'
+  },
+  {
+    path: 'formulario',
+    redirectTo: 'productos',
+    pathMatch: 'full'
+  },
+  {
+    path: 'categorias',
+    redirectTo: 'gestion-categoria',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   },
 
 ];

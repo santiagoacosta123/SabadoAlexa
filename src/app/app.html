@@ -66,6 +66,13 @@
           <span class="hidden md:inline">Productos</span>
         </a>
 
+        <a routerLink="/plantillas" routerLinkActive="active" #rla8="routerLinkActive"
+           [ngClass]="rla8.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
+           class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
+          <span class="material-symbols-rounded text-[18px]" [ngClass]="rla8.isActive ? 'text-[#5f7435]' : 'text-gray-400'">inventory_2</span>
+          <span class="hidden md:inline">Plantillas</span>
+        </a>
+
         <a routerLink="/sedes" routerLinkActive="active" #rla7="routerLinkActive"
            [ngClass]="rla7.isActive ? 'bg-white text-[#1a202c] font-bold shadow-sm border border-gray-200/60' : 'text-gray-600 hover:text-[#5f7435] hover:bg-white/50 font-medium'"
            class="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-xs sm:text-sm group flex-shrink-0">
