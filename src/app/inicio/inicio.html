@@ -1,0 +1,105 @@
+<div class="space-y-6 max-w-7xl mx-auto pb-10">
+  
+  <div class="relative bg-white border border-gray-200/80 rounded-3xl p-8 shadow-sm flex items-center justify-between overflow-hidden min-h-[180px]">
+    
+    <div class="absolute top-0 left-0 bottom-0 w-2.5 bg-[#5f7435] z-10"></div>
+
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-25 bg-cover bg-center" style="background-image: url('fondo-vegetales.png');"></div>
+
+    <div class="z-10 space-y-1 pl-4">
+      <h1 class="text-3xl sm:text-4xl font-normal tracking-tight text-gray-900" style="font-family: serif;">
+        Bienvenido <br>
+        <span class="text-[#5f7435] font-semibold">Mariana Gomez</span>
+      </h1>
+      <p class="text-sm font-medium text-gray-500 pt-1">
+        Panel de control de sistema
+      </p>
+      <p class="text-xs font-bold uppercase tracking-widest text-[#5f7435] pt-3">
+        SÁBADO, 29 DE AGOSTO DE 2026
+      </p>
+    </div>
+
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    
+    <div class="bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm">
+      <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Usuarios Activos</p>
+      <p class="text-3xl font-extrabold text-gray-900 mt-2">4</p>
+      <div class="mt-4">
+        <a routerLink="/usuarios" class="text-xs font-semibold text-[#5f7435] hover:underline flex items-center gap-1">
+          Ver Usuarios &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm">
+      <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Inventarios Activos</p>
+      <p class="text-3xl font-extrabold text-gray-900 mt-2">6</p>
+      <div class="mt-4">
+        <a routerLink="/inventario" class="text-xs font-semibold text-[#5f7435] hover:underline flex items-center gap-1">
+          Ver Inventarios &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm">
+      <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Menus Programados</p>
+      <p class="text-3xl font-extrabold text-gray-900 mt-2">10</p>
+      <div class="mt-4">
+        <a routerLink="/calendario" class="text-xs font-semibold text-[#5f7435] hover:underline flex items-center gap-1">
+          Ver Menus &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm">
+      <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Entregas Realizadas</p>
+      <p class="text-3xl font-extrabold text-gray-900 mt-2">4</p>
+      <div class="mt-4">
+        <a routerLink="/reportes" class="text-xs font-semibold text-[#5f7435] hover:underline flex items-center gap-1">
+          Ver Entregas &rarr;
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pt-4">
+    <h3 class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">Accesos Rápidos</h3>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+      <a routerLink="/usuarios" class="bg-white border border-gray-200/80 rounded-2xl p-5 shadow-sm hover:border-[#5f7435] transition-all flex flex-col items-center text-center group cursor-pointer">
+        <span class="material-symbols-rounded text-3xl text-[#5f7435] group-hover:scale-110 transition-transform mb-2">group</span>
+        <span class="text-xs font-bold text-gray-700">usuarios</span>
+      </a>
+
+      <a routerLink="/productos" class="bg-white border border-gray-200/80 rounded-2xl p-5 shadow-sm hover:border-[#5f7435] transition-all flex flex-col items-center text-center group cursor-pointer">
+        <span class="material-symbols-rounded text-3xl text-[#5f7435] group-hover:scale-110 transition-transform mb-2">inventory_2</span>
+        <span class="text-xs font-bold text-gray-700">Productos</span>
+      </a>
+
+      <a routerLink="/categorias" class="bg-white border border-gray-200/80 rounded-2xl p-5 shadow-sm hover:border-[#5f7435] transition-all flex flex-col items-center text-center group cursor-pointer">
+        <span class="material-symbols-rounded text-3xl text-[#5f7435] group-hover:scale-110 transition-transform mb-2">grid_view</span>
+        <span class="text-xs font-bold text-gray-700">Categorias</span>
+      </a>
+
+      <a routerLink="/inventario" class="bg-white border border-gray-200/80 rounded-2xl p-5 shadow-sm hover:border-[#5f7435] transition-all flex flex-col items-center text-center group cursor-pointer">
+        <span class="material-symbols-rounded text-3xl text-[#5f7435] group-hover:scale-110 transition-transform mb-2">menu_book</span>
+        <span class="text-xs font-bold text-gray-700">Inventario</span>
+      </a>
+
+      <a routerLink="/formulario" class="bg-white border border-gray-200/80 rounded-2xl p-5 shadow-sm hover:border-[#5f7435] transition-all flex flex-col items-center text-center group cursor-pointer">
+        <span class="material-symbols-rounded text-3xl text-[#5f7435] group-hover:scale-110 transition-transform mb-2">assignment</span>
+        <span class="text-xs font-bold text-gray-700">Formulario</span>
+      </a>
+
+      <a routerLink="/reportes" class="bg-white border border-gray-200/80 rounded-2xl p-5 shadow-sm hover:border-[#5f7435] transition-all flex flex-col items-center text-center group cursor-pointer">
+        <span class="material-symbols-rounded text-3xl text-[#5f7435] group-hover:scale-110 transition-transform mb-2">bar_chart</span>
+        <span class="text-xs font-bold text-gray-700">Reportes</span>
+      </a>
+
+    </div>
+  </div>
+
+</div>
