@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './crear-cuenta.html'
 })
 export class CrearCuentaComponent {
+  private router = inject(Router);
 
   registro = {
     nombre: '',
@@ -25,11 +26,7 @@ export class CrearCuentaComponent {
   };
 
   registrarCuenta() {
-
     console.log('Datos del registro:', this.registro);
-
-    alert('Registrarse');
-
+    this.router.navigate(['/inicio']);
   }
-
 }

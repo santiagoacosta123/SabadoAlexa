@@ -1,6 +1,5 @@
-<<<<<<< Updated upstream
-import { Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLinkActive, RouterLink } from '@angular/router'; 
+import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLinkActive, RouterLink, Router } from '@angular/router'; 
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,18 +10,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('administrador');
-}
+  private router = inject(Router);
 
-=======
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-@Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html'
-})
-export class App {
+  isAuthRoute(): boolean {
+    const url = this.router.url;
+    return url === '/login' || url === '/crear-cuenta' || url.startsWith('/login') || url.startsWith('/crear-cuenta');
+  }
 }
->>>>>>> Stashed changes

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './login.html'
 })
 export class LoginComponent {
+  private router = inject(Router);
 
   login = {
     correo: '',
@@ -17,11 +18,7 @@ export class LoginComponent {
   };
 
   iniciarSesion() {
-
     console.log('Datos del login:', this.login);
-
-    alert('Inicio de sesión');
-
+    this.router.navigate(['/inicio']);
   }
-
 }
