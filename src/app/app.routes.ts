@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta';
 import { CrearRoles } from './rol/crear-rol/crear-rol';
 import { ListarRoles } from './rol/listar-rol/listar-rol';
+import { Plantillas } from './plantillas/plantillas';
 
 
 export const routes: Routes = [
@@ -31,6 +32,10 @@ export const routes: Routes = [
   {
     path: 'productos',
     component: Productos
+  },
+  {
+    path: 'plantillas',
+    component: Plantillas
   },
   {
     path: 'crear-categoria',

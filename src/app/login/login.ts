@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,11 @@ export class LoginComponent {
 
   iniciarSesion() {
     if (!this.login.correo || !this.login.password) {
-      alert('Por favor ingresa tu correo y contraseña');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Datos incompletos',
+        text: 'Por favor ingresa tu correo y contraseña.'
+      });
       return;
     }
 
@@ -61,11 +66,13 @@ export class LoginComponent {
         this.cargando = false;
         console.error('Error en login:', error);
 
-        alert(
-          error.error?.mensaje ||
-          error.error?.detail ||
-          'Correo o contraseña incorrectos'
-        );
+        Swal.fire({
+          icon: 'error',
+          title: 'No se pudo iniciar sesión',
+          text: error.error?.mensaje ||
+            error.error?.detail ||
+            'Correo o contraseña incorrectos.'
+        });
       }
     });
   }
