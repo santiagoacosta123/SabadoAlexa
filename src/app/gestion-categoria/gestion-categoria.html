@@ -1,0 +1,397 @@
+<div class="min-h-screen bg-gray-100 flex">
+
+  <aside class="w-64 bg-white shadow-md flex flex-col">
+
+    <div class="p-6 border-b">
+
+      <img
+        src="assets/sirae.jpeg"
+        alt="Logo SIRAE"
+        class="w-32 h-auto object-contain">
+
+      <p class="text-sm text-[#777777]">
+        Administrador
+      </p>
+
+    </div>
+
+    <nav class="flex-1 p-4 space-y-2">
+
+      <a class="block px-4 py-3 rounded-lg text-[#777777] hover:bg-gray-100">
+        Inicio
+      </a>
+
+      <a class="block px-4 py-3 rounded-lg text-[#777777] hover:bg-gray-100">
+        Usuarios
+      </a>
+
+      <a class="block px-4 py-3 rounded-lg bg-[#F4B41F]/10 text-[#F4B41F] font-bold">
+        Categorías
+      </a>
+
+      <a class="block px-4 py-3 rounded-lg text-[#777777] hover:bg-gray-100">
+        Productos
+      </a>
+
+      <a class="block px-4 py-3 rounded-lg text-[#777777] hover:bg-gray-100">
+        Inventario
+      </a>
+
+    </nav>
+
+    <div class="p-4 border-t">
+
+      <button
+        type="button"
+        class="w-full py-2 rounded-lg bg-gray-100 text-[#777777]">
+
+        Cerrar sesión
+
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <main class="flex-1">
+
+    <header class="bg-white shadow-sm px-8 py-4 flex items-center justify-between">
+
+      <div>
+
+        <p class="text-sm text-[#777777]">
+          Inicio / Gestión de Categorías
+        </p>
+
+        <h2 class="text-xl font-bold text-gray-800">
+          Categorías
+        </h2>
+
+      </div>
+
+
+      <div class="flex items-center gap-3">
+
+        <button
+          type="button"
+          class="relative text-[#777777]">
+
+          🔔
+
+        </button>
+
+        <div class="w-10 h-10 rounded-full bg-[#F4B41F] flex items-center justify-center text-white font-bold">
+          A
+        </div>
+
+        <div>
+
+          <p class="text-sm font-bold text-gray-800">
+            Administrador
+          </p>
+
+          <p class="text-xs text-[#777777]">
+            Administrador
+          </p>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <section class="p-8">
+
+      <div class="bg-[#F4B41F] rounded-xl p-5 mb-6">
+
+        <div class="flex items-center justify-between">
+
+          <div>
+
+            <h1 class="text-2xl font-bold text-white">
+              Gestión de Categorías
+            </h1>
+
+            <p class="text-white/90 text-sm mt-1">
+              Administra las categorías de productos
+            </p>
+
+          </div>
+
+
+          <button
+            type="button"
+            (click)="irCrearCategoria()"
+            class="bg-white text-[#F4B41F] px-5 py-2 rounded-lg font-bold hover:bg-gray-100">
+
+            + Nueva Categoría
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="bg-white rounded-xl shadow-sm p-5 mb-6">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <div>
+
+            <label class="block text-sm font-bold text-[#777777] mb-2">
+              Buscar categoría
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="textoBusqueda"
+              (input)="buscarCategoria()"
+              placeholder="Buscar por nombre o descripción"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none focus:border-[#F4B41F]">
+
+          </div>
+
+
+          <div>
+
+            <label class="block text-sm font-bold text-[#777777] mb-2">
+              Estado
+            </label>
+
+            <select
+              [(ngModel)]="estadoSeleccionado"
+              (change)="filtrarEstado()"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none focus:border-[#F4B41F]">
+
+              <option value="Todos">
+                Todos
+              </option>
+
+              <option value="Activo">
+                Activo
+              </option>
+
+              <option value="Inactivo">
+                Inactivo
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="flex items-end">
+
+            <button
+              type="button"
+              (click)="actualizar()"
+              class="w-full bg-[#F4B41F] text-white px-4 py-2 rounded-lg font-bold hover:bg-[#d99d10]">
+
+              Actualizar
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+
+        <div class="overflow-x-auto">
+
+          <table class="w-full">
+
+            <thead class="bg-gray-50 border-b">
+
+              <tr>
+
+                <th class="px-5 py-4 text-left">
+
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="seleccionarTodas"
+                    (change)="cambiarSeleccionTodas()"
+                    class="w-4 h-4 accent-[#F4B41F]">
+
+                </th>
+
+                <th class="px-5 py-4 text-left text-xs font-bold text-[#777777] uppercase">
+                  ID
+                </th>
+
+                <th class="px-5 py-4 text-left text-xs font-bold text-[#777777] uppercase">
+                  Categoría
+                </th>
+
+                <th class="px-5 py-4 text-left text-xs font-bold text-[#777777] uppercase">
+                  Descripción
+                </th>
+
+                <th class="px-5 py-4 text-left text-xs font-bold text-[#777777] uppercase">
+                  Estado
+                </th>
+
+                <th class="px-5 py-4 text-left text-xs font-bold text-[#777777] uppercase">
+                  Fecha
+                </th>
+
+                <th class="px-5 py-4 text-center text-xs font-bold text-[#777777] uppercase">
+                  Acciones
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody class="divide-y">
+
+              <tr
+                *ngFor="let item of categoriasFiltradas"
+                class="hover:bg-gray-50">
+
+                <td class="px-5 py-4">
+
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="item.seleccionada"
+                    class="w-4 h-4 accent-[#F4B41F]">
+
+                </td>
+
+                <td class="px-5 py-4 text-sm text-gray-700">
+
+                  {{ item.id }}
+
+                </td>
+
+                <td class="px-5 py-4">
+
+                  <p class="font-bold text-gray-800">
+
+                    {{ item.nombre }}
+
+                  </p>
+
+                </td>
+
+                <td class="px-5 py-4 text-sm text-[#777777]">
+
+                  {{ item.descripcion }}
+
+                </td>
+
+                <td class="px-5 py-4">
+
+                  <span
+                    *ngIf="item.estado === 'Activo'"
+                    class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold">
+
+                    Activo
+
+                  </span>
+
+                  <span
+                    *ngIf="item.estado === 'Inactivo'"
+                    class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold">
+
+                    Inactivo
+
+                  </span>
+
+                </td>
+
+                <td class="px-5 py-4 text-sm text-[#777777]">
+
+                  {{ item.fecha }}
+
+                </td>
+
+                <td class="px-5 py-4">
+
+                  <div class="flex justify-center gap-2">
+
+                    <button
+                      type="button"
+                      (click)="verCategoria(item)"
+                      class="text-blue-600 bg-blue-50 px-2 py-1 rounded hover:bg-blue-100 text-xs font-bold">
+
+                      Ver
+
+                    </button>
+
+                    <button
+                      type="button"
+                      (click)="editarCategoria(item)"
+                      class="text-[#F4B41F] bg-[#F4B41F]/10 px-2 py-1 rounded hover:bg-[#F4B41F]/20 text-xs font-bold">
+
+                      Editar
+
+                    </button>
+
+                    <button
+                      type="button"
+                      (click)="eliminarCategoria(item)"
+                      class="text-[#E53935] bg-red-50 px-2 py-1 rounded hover:bg-red-100 text-xs font-bold">
+
+                      Eliminar
+
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+
+              <tr *ngIf="categoriasFiltradas.length === 0">
+
+                <td
+                  colspan="7"
+                  class="px-5 py-10 text-center">
+
+                  <p class="text-[#777777]">
+                    No se encontraron categorías.
+                  </p>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <div class="border-t px-5 py-4">
+
+          <p class="text-sm text-[#777777]">
+
+            Mostrando
+
+            <span class="font-bold text-gray-800">
+              {{ categoriasFiltradas.length }}
+            </span>
+
+            categorías
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
